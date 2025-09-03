@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Homework 2 Extra</title>
+    <meta name="description" content="JavaScript assignment 2 extra credit for College of San Mateo Computer Science course">
+    <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, currency converter">
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="hw2-extra.css">
+    <script src="hw2-extra.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navhorizontal">
+            <ul>
+                <li><a href="hw1.html" class="navbutton" target="_self"><span>Home Page<br>(Homework 1)</span></a></li>
+                <li><a href="hw2.html" class="navbutton" target="_self"><span>Homework<br>2</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>3</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>4</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>5</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>6</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>7</span></a></li>
+                <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>8</span></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <nav>
+            <table class="hwparts">
+                <tbody>
+                    <tr>
+                        <td><a href="hw2-1.html" class="navbutton" target="_self">Part 1</a></td>
+                        <td>- Styled Text</td>
+                    </tr>
+                    <tr>
+                        <td><a href="hw2-2.html" class="navbutton" target="_self">Part 2</a></td>
+                        <td>- Calculations with 3 Integers</td>
+                    </tr>
+                    <tr>
+                        <td><a href="hw2-extra.html" class="navbutton currentpage" target="_self">Extra</a></td>
+                        <td>- Currency Converter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </nav>
+        <h1>Homework 2 - Basic Operations, Extra</h1>
+        <h2>Currency Converter</h2>
+        <p>
+            Enter a U.S. Dollar amount in the last row.
+            The value in other currencies will update automatically based on the rates in the table.
+        </p>
+        <div id="javascript_output">
+            <table id="currencies_table">
+                <thead>
+                    <tr>
+                        <th>Currency</th>
+                        <th>Rate</th>
+                        <th>Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- currency output rows by javascript -->
+                    <tr id="USinputrow">
+                        <td colspan="2">Enter Amount of U.S. Dollars:</td>
+                        <td><input type="number" id="USinput" required value="0.00" placeholder="0.00"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <a href="hw2.html" class="navbutton" target="_self">Return to Homework 2 Home</a>
+    </footer>
+</body>
+</html>
