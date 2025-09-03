@@ -18,10 +18,7 @@ function processInput() {
     jsOutput.style.whiteSpace = 'pre-line';  // preserve line breaks but not extra spaces in output
     jsOutput.style.textWrap = 'nowrap';  // don't wrap (might not work on older browsers)
 
-    if (jsOutput.textContent !== '') {
-        jsOutput.append('\n');
-    }
-    
+    // Compute and prepend results to output.
     if (Number.isInteger(int1) && Number.isInteger(int2) && Number.isInteger(int3)) {
         const sum = int1 + int2 + int3;
         const average = sum / 3;
@@ -29,11 +26,11 @@ function processInput() {
         const min = Math.min(int1, int2, int3);
         const max = Math.max(int1, int2, int3);
         
-        jsOutput.append('First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3
+        jsOutput.prepend('First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3
             + '\nSum: ' + sum + '\nAverage: ' + average + '\nProduct: ' + product
-            + '\nMin: ' + min + '\nMax: ' + max + '\n');
+            + '\nMin: ' + min + '\nMax: ' + max + '\n\n');
     } else {
-        jsOutput.append('Input error. Make sure all values are numbers with no whitespace.\n');
+        jsOutput.prepend('Input error. Make sure all values are numbers with no whitespace.\n\n');
         console.log('First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3);
     }
 }
