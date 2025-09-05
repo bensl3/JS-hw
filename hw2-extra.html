@@ -26,25 +26,20 @@
         </nav>
     </header>
     <main>
-        <nav>
-            <table class="hwparts">
-                <tbody>
-                    <tr>
-                        <td><a href="hw2-1.html" class="navbutton" target="_self">Part 1</a></td>
-                        <td>- Styled Text</td>
-                    </tr>
-                    <tr>
-                        <td><a href="hw2-2.html" class="navbutton" target="_self">Part 2</a></td>
-                        <td>- Calculations with 3 Integers</td>
-                    </tr>
-                    <tr>
-                        <td><a href="hw2-extra.html" class="navbutton currentpage" target="_self">Extra</a></td>
-                        <td>- Currency Converter</td>
-                    </tr>
-                </tbody>
-            </table>
+        <nav class="hwparts">
+            <ul>
+                <li><a href="hw2-1.html" class="navbutton" target="_self">Part 1</a>
+                    <span class="title">Styled Text</span>
+                </li>
+                <li><a href="hw2-2.html" class="navbutton" target="_self">Part 2</a>
+                    <span class="title">Calculations with 3 Integers</span>
+                </li>
+                <li><a href="hw2-extra.html" class="navbutton currentpage" target="_self">Extra</a>
+                    <span class="title">Currency Converter</span>
+                </li>
+            </ul>
         </nav>
-        <h1>Homework 2 - Basic Operations, Extra</h1>
+        <h1>Homework 2, Extra</h1>
         <h2>Currency Converter</h2>
         <p>
             Enter a U.S. Dollar amount in the last row.
@@ -62,7 +57,7 @@
                 <tbody>
                     <!-- currency output rows by javascript -->
                     <tr id="USinputrow">
-                        <td colspan="2">Enter Amount of U.S. Dollars:</td>
+                        <td colspan="2"><label for="USinput">Enter Amount of U.S. Dollars:</label></td>
                         <td><input type="number" id="USinput" required value="0.00" placeholder="0.00"></td>
                     </tr>
                 </tbody>

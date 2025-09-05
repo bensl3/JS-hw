@@ -116,24 +116,24 @@ ul.hwparts .detail {
     font-weight: normal;
 }
 
-table.hwparts {
-    border-collapse: collapse;
+nav.hwparts ul {
+    all: unset;
+    display: inline-block;
+    list-style: none;
 }
 
-table.hwparts td {
-    margin: 0;
-    padding: 0;
+nav.hwparts li {
+    display: flex;
 }
 
-table.hwparts .navbutton {
+nav.hwparts .title {
+    display: flex;
     width: 100%;
-}
-
-table.hwparts td + td {
     padding: 0 0.3rem;
+    align-items: center;
 }
 
-table.hwparts td:has(.currentpage) + td {
+nav.hwparts .currentpage + .title {
     font-weight: bold;
     background-color: gold;
 }

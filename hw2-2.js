@@ -1,7 +1,6 @@
 /*
 Get 3 integers from an HTML form, then calculate sum, average, product, min,
-and max, and output the results. If form's reset button is clicked, clear
-all output.
+and max, and output the results. If reset button is clicked, clear output.
 */
 const integerForm = document.getElementById('integersform');
 
@@ -18,7 +17,7 @@ function processInput() {
     jsOutput.style.whiteSpace = 'pre-line';  // preserve line breaks but not extra spaces in output
     jsOutput.style.textWrap = 'nowrap';  // don't wrap (might not work on older browsers)
 
-    // Compute and prepend results to output.
+    // Compute and overwrite output.
     if (Number.isInteger(int1) && Number.isInteger(int2) && Number.isInteger(int3)) {
         const sum = int1 + int2 + int3;
         const average = sum / 3;
@@ -26,11 +25,11 @@ function processInput() {
         const min = Math.min(int1, int2, int3);
         const max = Math.max(int1, int2, int3);
         
-        jsOutput.prepend('First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3
+        jsOutput.textContent = 'First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3
             + '\nSum: ' + sum + '\nAverage: ' + average + '\nProduct: ' + product
-            + '\nMin: ' + min + '\nMax: ' + max + '\n\n');
+            + '\nMin: ' + min + '\nMax: ' + max;
     } else {
-        jsOutput.prepend('Input error. Make sure all values are numbers with no whitespace.\n\n');
+        jsOutput.textContent = 'Input error. Make sure all values are numbers with no whitespace.';
         console.log('First integer: ' + int1 + ', Second integer: ' + int2 + ', Third integer: ' + int3);
     }
 }
