@@ -54,7 +54,7 @@ nav .navbutton {
     overflow-y: auto;
 }
 
-nav .navbutton span {  /* enable wrap text in flex containers */
+.navbutton span {  /* enable wrap text in flex containers */
     max-width: 100%;
 }
 
@@ -70,7 +70,6 @@ nav .navbutton span {  /* enable wrap text in flex containers */
 }
 
 .navvertical .navbutton {
-    width: 100%;
     min-width: 8rem;
     max-width: 18rem;
     min-height: 4rem;
@@ -108,34 +107,47 @@ nav .navbutton span {  /* enable wrap text in flex containers */
     font-size: 1.15rem;
 }
 
-ul.hwparts {
+.hwparts {
     font-weight: bold;
 }
 
-ul.hwparts .detail {
+.hwparts .detail {
     font-weight: normal;
 }
 
-nav.hwparts ul {
-    all: unset;
-    display: inline-block;
-    list-style: none;
-}
-
-nav.hwparts li {
-    display: flex;
-}
-
-nav.hwparts .title {
-    display: flex;
-    width: 100%;
-    padding: 0 0.3rem;
+.hwpartsgrid {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-gap: 0;
     align-items: center;
 }
 
-nav.hwparts .currentpage + .title {
+.hwpartsgrid .navbutton {
+    display: inline-block;  /* prevents left cut off when overflow */
+    max-width: 18rem;
+    text-wrap: nowrap;
+    overflow-x: auto;
+}
+
+.hwpartsgrid .title {
+    height:100%;
+    max-width: 24rem;
+    padding: 0 0.3rem;
+    align-content: center;
+}
+
+.hwpartsgrid .here {
+    visibility: hidden;
+}
+
+.hwpartsgrid .currentpage + .title {
     font-weight: bold;
     background-color: gold;
+}
+
+.hwpartsgrid .currentpage + .title + .here {
+    visibility: visible;
+    padding: 0 0.2rem;
 }
 
 .navbutton:visited {
@@ -157,7 +169,7 @@ nav.hwparts .currentpage + .title {
 }
 
 #javascript_output {
-    margin: 0 2rem 2rem;
+    margin: 0 8px 2rem;
     border: 0.1rem solid black;
     padding: 1rem;
     background-color: white;
