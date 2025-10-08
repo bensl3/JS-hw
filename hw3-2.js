@@ -1,9 +1,9 @@
 /*
-Get quantities sold for 4 items from a form. Then, calculate total amount
+Get quantities sold for 4 items from a form. Calculate total sales amount
 based on quantity sold times price for each item. Then, calculate total weekly
-earnings equal to a base amount plus commission % of total amount sold.
-Display results in a table with columns: Item#, Price, Qty Sold, Total $.
-Also display total amount sold and total weekly earnings.
+earnings equal to a base amount plus commission % of total sales amount.
+Display results in a table with columns: Item#, Price, Qty Sold, Total $;
+and total amount sold and total weekly earnings.
 */
 const itemsForm = document.getElementById('items_sold_form');
 const jsOutput = document.getElementById('script_output');
@@ -20,12 +20,14 @@ const item3Price = 9.95;
 const item4Price = 35.89;
 const numDecimalPlaces = 2;  // decimal places for money amounts
 
+const errorOutId = 'erroroutput';
+
 itemsForm.elements['submit'].addEventListener('click', processInput);
 itemsForm.elements['reset'].addEventListener('click', () => {
     clearResults();
-    printItemTotalsTable('', '', '', '');
+    printItemTotalsTable();
 });
-document.addEventListener('DOMContentLoaded', printItemTotalsTable('', '', '', ''));
+document.addEventListener('DOMContentLoaded', printItemTotalsTable());
 
 function createItemRow(itemNumber, itemPrice, qtySold, totalPrice) {
     const qtySoldElement = createReadOnlyElement();
@@ -47,15 +49,15 @@ function createItemRow(itemNumber, itemPrice, qtySold, totalPrice) {
     return tableRow;
 }
 
-function createTotalRow(labelText, labelForValue, totalAmount) {
+function createTotalRow(labelText, labelFor, totalAmount) {
     const labelElement = document.createElement('label');
-    labelElement.htmlFor = labelForValue;
+    labelElement.htmlFor = labelFor;
     labelElement.textContent = labelText;
 
     const tdLabel = createTableCellWithElement(labelElement);
     tdLabel.colSpan = 3;
 
-    const totalAmountElement = createReadOnlyElement(labelForValue);
+    const totalAmountElement = createReadOnlyElement(labelFor);
     if (totalAmount !== '') {
         totalAmountElement.value = totalAmount.toFixed(numDecimalPlaces);
     }
@@ -94,20 +96,52 @@ function createReadOnlyElement(id = '') {
 
 function processInput() {
     clearResults();  // only show newest results
-    const item1QtySold = parseInt(itemsForm.elements['item1'].value, 10);
-    const item2QtySold = parseInt(itemsForm.elements['item2'].value, 10);
-    const item3QtySold = parseInt(itemsForm.elements['item3'].value, 10);
-    const item4QtySold = parseInt(itemsForm.elements['item4'].value, 10);
+    const item1QtySold = getIntFromInputElement('item1', 0);
+    const item2QtySold = getIntFromInputElement('item2', 0);
+    const item3QtySold = getIntFromInputElement('item3', 0);
+    const item4QtySold = getIntFromInputElement('item4', 0);
 
-    if (!Number.isInteger(item1QtySold) || !Number.isInteger(item2QtySold)
-            || !Number.isInteger(item3QtySold) || !Number.isInteger(item4QtySold)) {
-        jsOutput.textContent = 'Input error. Make sure all inputs are integers with no whitespace.';
-        console.log('item1: ' + item1QtySold + ', item2: ' + item2QtySold
-                    + ', item3: ' + item3QtySold + ', item4: ' + item4QtySold);
-    } else if (item1QtySold < 0 || item2QtySold < 0 || item3QtySold < 0 || item4QtySold < 0) {
-        jsOutput.textContent = 'Input out of range. Make sure all values are greater than or equal to 0.';
-    } else {  // inputs are integers >= 0
-        printItemTotalsTable(item1QtySold, item2QtySold, item3QtySold, item4QtySold)
+    printItemTotalsTable(item1QtySold, item2QtySold, item3QtySold, item4QtySold)
+}
+
+function getIntFromInputElement(inputId, min, max) {
+    // If valid input, return parsed int, else output error message and return null.
+    // Input is invalid if not an integer or < min (if defined) or > max (if defined).
+    const input = document.getElementById(inputId);
+    const parsedInt = parseInt(input.value, 10)
+    const label = input.labels[0].textContent;
+    let valid = false;
+    let errorText = '';
+    if (!Number.isInteger(parsedInt)) {
+        errorText += label + ' error. Require integer with no whitespace.\n';
+    } else if (parsedInt < min || parsedInt > max) {
+        errorText += label + ' out of range. Must be';
+        if (typeof(min) !== 'undefined') {
+            errorText += ' greater than or equal to ' + min;
+            if (typeof(max) !== 'undefined') {
+                errorText += ' and';
+            }
+        }
+        if (typeof(max) !== 'undefined') {
+            errorText += ' less than or equal to ' + max;
+        }
+        errorText += '.\n';
+    } else {
+        valid = true;
+    }
+
+    if (valid) {
+        return parsedInt;
+    } else {
+        let errorOutput = document.getElementById(errorOutId);
+        if (errorOutput === null) {
+            errorOutput = document.createElement('p');
+            errorOutput.id = errorOutId;
+            errorOutput.style.whiteSpace = 'pre-wrap';
+            jsOutput.prepend(errorOutput);
+        }
+        errorOutput.textContent += errorText;
+        return null;
     }
 }
 
@@ -122,13 +156,19 @@ function printItemTotalsTable(item1Qty, item2Qty, item3Qty, item4Qty) {
     let totalAmountSold = '';
     let totalEarnings = '';
 
-    if (item1Qty !== '' && item2Qty !== '' && item3Qty !== '' && item4Qty !== '') {
+    if (Number.isInteger(item1Qty) && Number.isInteger(item2Qty)
+            && Number.isInteger(item3Qty) && Number.isInteger(item4Qty)) {
         item1Total = item1Qty * item1Price;
         item2Total = item2Qty * item2Price;
         item3Total = item3Qty * item3Price;
         item4Total = item4Qty * item4Price;
         totalAmountSold = item1Total + item2Total + item3Total + item4Total;
         totalEarnings = baseWeeklyEarning + (commissionPercent * totalAmountSold);
+    } else {
+        item1Qty = '';
+        item2Qty = '';
+        item3Qty = '';
+        item4Qty = '';
     }
 
     // Table headers

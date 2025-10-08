@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Homework 4 Extra</title>
+    <meta name="description" content="JavaScript assignment 4 extra credit for College of San Mateo Computer Science course">
+    <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, draw square">
+    <link rel="stylesheet" href="main.css">
+    <script src="header.js" defer></script>
+    <script src="hw4-extra.js" defer></script>
+</head>
+<body>
+    <main>
+        <nav class="hwpartsgrid">
+            <a href="hw4-1.html" class="navbutton" target="_self">Part 1</a>
+            <span class="title">Product and Sum Sequences</span> <em class="here">(You are here.)</em>
+            <a href="hw4-2.html" class="navbutton" target="_self">Part 2</a>
+            <span class="title">Multiplication Tables</span> <em class="here">(You are here.)</em>
+            <a href="hw4-extra.html" class="navbutton currentpage" target="_self">Extra</a>
+            <span class="title">Draw a Square</span> <em class="here">(You are here.)</em>
+        </nav>
+        <h1>Homework 4, Extra Credit</h1>
+        <h2>Draw a Square</h2>
+        <p>Input the side length of a square then a square of asterisks will be displayed.</p>
+        <p>The input must be an integer between 2 and 10. If you enter a decimal, digits after the decimal point are ignored.</p>
+        <form id="sidelengthform">
+            <p>
+                <label for="sidelength">Side Length:</label>
+                <input type="number" id="sidelength" name="sidelength" required>
+            </p>
+            <button type="button" name="submit">Submit</button>
+            <button type="reset" name="reset">Clear</button>
+        </form>
+        <h3>Output</h3>
+        <div id="javascript_output"></div>
+    </main>
+    <footer>
+        <a href="hw4.html" class="navbutton" target="_self">Return to Homework 4 Home</a>
+    </footer>
+</body>
+</html>
