@@ -23,6 +23,9 @@ function createTableCellWithText(cellText, cellType = 'td') {
 for (let multiplier = start; multiplier <= end; multiplier += 1) {
     const multiplicationTable = document.createElement('table');
     multiplicationTable.className = 'mult_table';  // for external CSS style
+    
+    const tableCaption = document.createElement('caption');
+    tableCaption.textContent = 'Multiplication Table of ' + multiplier.toLocaleString();
 
     const tableHead = document.createElement('thead');
     tableHead.append(createTableRow('Number', 'Multiplier', 'Result', 'th'));
@@ -33,6 +36,6 @@ for (let multiplier = start; multiplier <= end; multiplier += 1) {
         tableBody.append(createTableRow(i.toLocaleString(), multiplier.toLocaleString(), product.toLocaleString()));
     }
 
-    multiplicationTable.append(tableHead, tableBody);
+    multiplicationTable.append(tableCaption, tableHead, tableBody);
     jsOutput.append(multiplicationTable);
 }
