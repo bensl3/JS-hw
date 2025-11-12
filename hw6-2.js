@@ -25,7 +25,7 @@ function processInput() {
     }
   }
   if (count > 0) {
-    jsOutput.textContent = `The character "${charToCount}" shows up in the content ${count} times.`
+    jsOutput.textContent = `The character "${charToCount}" shows up in the content ${count} time(s).`
   } else {
     // place new window relative to the current window
     const top = window.screenTop + 400;
