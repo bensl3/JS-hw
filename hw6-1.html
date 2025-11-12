@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Homework 6 Part 1</title>
+  <meta name="description" content="JavaScript assignment 6 part 1 for College of San Mateo Computer Science course">
+  <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, decimals, math">
+  <link rel="stylesheet" href="main.css">
+  <script src="site-header.js" defer></script>
+  <script src="hw6-1.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav class="hwpartsgrid">
+      <a href="hw6-1.html" class="navbutton currentpage" target="_self">Part 1</a>
+      <span class="title">Decimal Math</span> <em class="here">(You are here.)</em>
+      <a href="hw6-2.html" class="navbutton" target="_self">Part 2</a>
+      <span class="title">Character Count</span> <em class="here">(You are here.)</em>
+    </nav>
+    <h1>Homework 6, Part 1</h1>
+    <h2>Decimal Math Operations</h2>
+    <p>Enter a number with at least 4 decimal places (leading and trailing whitespace is ignored). Then, round to integer; round the square root to integer; and round to tenths, hundredths, and thousandths places.</p>
+    <form id="decimalForm">
+      <label for="decimal">Number with at least 4 decimal places: </label>
+      <input id="decimal" name="decimal" type="text" required>
+      <p>
+        <button type="submit" id="submit">Submit</button>
+        <button type="reset" id="reset">Clear</button>
+      </p>
+    </form>
+    <h2>Output</h2>
+    <div id="javascript_output"></div>
+  </main>
+  <footer>
+    <a href="hw6.html" class="navbutton" target="_self">Return to Homework 6 Home</a>
+  </footer>
+</body>
+</html>

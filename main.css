@@ -1,177 +1,177 @@
 body {
-    /* Clear body boxes so section backgrounds go to edge. Set padding in
-    sections to mimic body margin, e.g., 8px on outside edges. */
-    margin: 0;
-    padding: 0;
-    background-color: blanchedalmond;
+  /* Clear body boxes so section backgrounds go to edge. Set padding in
+  sections to mimic body margin, e.g., 8px on outside edges. */
+  margin: 0;
+  padding: 0;
+  background-color: blanchedalmond;
 }
 
 header {
-    position: sticky;
-    top: 0;
-    padding: 8px 8px 1rem;
-    border-bottom: 0.25rem outset gray;
-    margin-bottom: 1rem;
+  position: sticky;
+  top: 0;
+  padding: 8px 8px 1rem;
+  border-bottom: 0.25rem outset gray;
+  margin-bottom: 1rem;
 }
 
 main {
-    padding: 0 8px;
+  padding: 0 8px;
 }
 
 footer {
-    margin-top: 3rem;
-    padding: 0 8px 8px;
+  margin-top: 3rem;
+  padding: 0 8px 8px;
 }
 
 header, nav ul {  /* background makes it not transparent */
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
 h1 {
-    text-align: center;
+  text-align: center;
 }
 
 .navbutton {
-    display: inline-block;
-    box-sizing: border-box;
-    min-width: 4.5rem;
-    margin: 0;
-    border: 0.14rem outset black;
-    padding: 0.5rem;
-    background-color: palegreen;
-    color: black;
-    font: 1rem "Tahoma", sans-serif;
-    text-decoration: none;
-    text-align: center;
-    overflow-wrap: break-word;
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 4.5rem;
+  margin: 0;
+  border: 0.14rem outset black;
+  padding: 0.5rem;
+  background-color: palegreen;
+  color: black;
+  font: 1rem "Tahoma", sans-serif;
+  text-decoration: none;
+  text-align: center;
+  overflow-wrap: break-word;
 }
 
 nav .navbutton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 .navbutton span {  /* enable wrap text in flex containers */
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .navvertical ul {
-    width: fit-content;
-    margin: auto;
-    padding: 2rem 1rem;
-    list-style: none;
+  width: fit-content;
+  margin: auto;
+  padding: 2rem 1rem;
+  list-style: none;
 }
 
 .navvertical li {
-    margin: 0.4rem;
+  margin: 0.4rem;
 }
 
 .navvertical .navbutton {
-    min-width: 8rem;
-    max-width: 18rem;
-    min-height: 4rem;
-    max-height: 7rem;
-    font-size: 1.2rem;
+  min-width: 8rem;
+  max-width: 18rem;
+  min-height: 4rem;
+  max-height: 7rem;
+  font-size: 1.2rem;
 }
 
 .navhorizontal ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    /*font-size: 0;  /* remove gaps if display: inline-block */
-    list-style: none;
-    overflow-x: auto;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  /*font-size: 0;  /* remove gaps if display: inline-block */
+  list-style: none;
+  overflow-x: auto;
 }
 
 .navhorizontal li {
-    flex-shrink: 0;
+  flex-shrink: 0;
 }
 
 .navhorizontal li:first-child {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .navhorizontal li:last-child {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .navhorizontal .navbutton {
-    min-width: 6rem;
-    max-width: 12rem;
-    height: 100%;
-    min-height: 4rem;
-    max-height: 8rem;
-    font-size: 1.15rem;
+  min-width: 6rem;
+  max-width: 12rem;
+  height: 100%;
+  min-height: 4rem;
+  max-height: 8rem;
+  font-size: 1.15rem;
 }
 
 .hwparts {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .hwparts .detail {
-    font-weight: normal;
+  font-weight: normal;
 }
 
 .hwpartsgrid {
-    display: grid;
-    grid-template-columns: max-content max-content max-content;
-    grid-gap: 0;
-    align-items: center;
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-gap: 0;
+  align-items: center;
 }
 
 .hwpartsgrid .navbutton {
-    display: inline-block;  /* prevents left cut off when overflow */
-    max-width: 18rem;
-    text-wrap: nowrap;
-    overflow-x: auto;
+  display: inline-block;  /* prevents left cut off when overflow */
+  max-width: 18rem;
+  text-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .hwpartsgrid .title {
-    height:100%;
-    max-width: 24rem;
-    padding: 0 0.3rem;
-    align-content: center;
+  height:100%;
+  max-width: 24rem;
+  padding: 0 0.3rem;
+  align-content: center;
 }
 
 .hwpartsgrid .here {
-    visibility: hidden;
+  visibility: hidden;
 }
 
 .hwpartsgrid .currentpage + .title {
-    font-weight: bold;
-    background-color: gold;
+  font-weight: bold;
+  background-color: gold;
 }
 
 .hwpartsgrid .currentpage + .title + .here {
-    visibility: visible;
-    padding: 0 0.2rem;
+  visibility: visible;
+  padding: 0 0.2rem;
 }
 
 .navbutton:visited {
-    color: purple;
+  color: purple;
 }
  
 .navbutton:hover {
-    background-color: cyan;
-    text-decoration: underline;
+  background-color: cyan;
+  text-decoration: underline;
 }
 
 .navbutton.currentpage {
-    background-color: gold;
+  background-color: gold;
 }
 
 .navbutton:active {
-    background-color: darkcyan;
-    color: white;
+  background-color: darkcyan;
+  color: white;
 }
 
 #javascript_output {
-    margin: 1rem 8px 2rem;
-    border: 0.1rem solid black;
-    padding: 1rem;
-    background-color: white;
-    overflow-x: auto;
+  margin: 1rem 8px 2rem;
+  border: 0.1rem solid black;
+  padding: 1rem;
+  background-color: white;
+  overflow-x: auto;
 }

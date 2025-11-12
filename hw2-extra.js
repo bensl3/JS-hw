@@ -29,31 +29,31 @@ const japanRate = 156.73;
 const mexicoRate = 18.41;
 
 function createCurrencyOutRow(currency, rate, valueElement) {
-    const currencyRow = document.createElement('tr');
-    currencyRow.append(createTdWithText(currency));
-    currencyRow.append(createTdWithText(rate));
-    currencyRow.append(createTdWithElement(valueElement));
-    return currencyRow;
+  const currencyRow = document.createElement('tr');
+  currencyRow.append(createTdWithText(currency));
+  currencyRow.append(createTdWithText(rate));
+  currencyRow.append(createTdWithElement(valueElement));
+  return currencyRow;
 }
 
 function createTdWithText(cellText) {
-    const cellElement = document.createElement('td');
-    cellElement.textContent = cellText;
-    return cellElement;
+  const cellElement = document.createElement('td');
+  cellElement.textContent = cellText;
+  return cellElement;
 }
 
 function createTdWithElement(childElement) {
-    const cellElement = document.createElement('td');
-    cellElement.append(childElement);
-    return cellElement;
+  const cellElement = document.createElement('td');
+  cellElement.append(childElement);
+  return cellElement;
 }
 
 function createValueOutElement(id) {
-    const inputReadOnlyElement = document.createElement('input');
-    inputReadOnlyElement.id = id;
-    inputReadOnlyElement.type = 'text';
-    inputReadOnlyElement.readOnly = true;
-    return inputReadOnlyElement;
+  const inputReadOnlyElement = document.createElement('input');
+  inputReadOnlyElement.id = id;
+  inputReadOnlyElement.type = 'text';
+  inputReadOnlyElement.readOnly = true;
+  return inputReadOnlyElement;
 }
 
 // New elements to receive currency output values
@@ -67,15 +67,15 @@ const mexicoOutElement = createValueOutElement(mexicoValueId);
 const USinputRow = document.getElementById(USrowId);
 const currenciesTbody = document.getElementById(currenciesTableId).getElementsByTagName('tbody')[0];
 currenciesTbody.insertBefore(createCurrencyOutRow(euroCurrency, euroRate, euroOutElement),
-                             USinputRow);
+               USinputRow);
 currenciesTbody.insertBefore(createCurrencyOutRow(canadaCurrency, canadaRate, canadaOutElement),
-                             USinputRow);
+               USinputRow);
 currenciesTbody.insertBefore(createCurrencyOutRow(hongKongCurrency, hongKongRate, hongKongOutElement),
-                             USinputRow);
+               USinputRow);
 currenciesTbody.insertBefore(createCurrencyOutRow(japanCurrency, japanRate, japanOutElement),
-                             USinputRow);
+               USinputRow);
 currenciesTbody.insertBefore(createCurrencyOutRow(mexicoCurrency, mexicoRate, mexicoOutElement),
-                             USinputRow);
+               USinputRow);
 
 
 // Listen for changed input value, and update table.
@@ -84,26 +84,26 @@ USinputElement.addEventListener('input', processInput);
 document.addEventListener('DOMContentLoaded', processInput);  // process initial input value
 
 function processInput() {
-    const USinputValue = parseFloat(USinputElement.value);
-    const numDecimalPlaces = 2;
+  const USinputValue = parseFloat(USinputElement.value);
+  const numDecimalPlaces = 2;
 
-    if (isNaN(USinputValue)) {
-        const message = 'Please enter a number with no whitespace.';
-        euroOutElement.value = message;
-        canadaOutElement.value = message;
-        hongKongOutElement.value = message;
-        japanOutElement.value = message;
-        mexicoOutElement.value = message;
-    } else {
-        euroOutElement.value = convertAndRound(USinputValue, euroRate, numDecimalPlaces);
-        canadaOutElement.value = convertAndRound(USinputValue, canadaRate, numDecimalPlaces);
-        hongKongOutElement.value = convertAndRound(USinputValue, hongKongRate, numDecimalPlaces);
-        japanOutElement.value = convertAndRound(USinputValue, japanRate, numDecimalPlaces);
-        mexicoOutElement.value = convertAndRound(USinputValue, mexicoRate, numDecimalPlaces);
-    }
+  if (isNaN(USinputValue)) {
+    const message = 'Please enter a number with no whitespace.';
+    euroOutElement.value = message;
+    canadaOutElement.value = message;
+    hongKongOutElement.value = message;
+    japanOutElement.value = message;
+    mexicoOutElement.value = message;
+  } else {
+    euroOutElement.value = convertAndRound(USinputValue, euroRate, numDecimalPlaces);
+    canadaOutElement.value = convertAndRound(USinputValue, canadaRate, numDecimalPlaces);
+    hongKongOutElement.value = convertAndRound(USinputValue, hongKongRate, numDecimalPlaces);
+    japanOutElement.value = convertAndRound(USinputValue, japanRate, numDecimalPlaces);
+    mexicoOutElement.value = convertAndRound(USinputValue, mexicoRate, numDecimalPlaces);
+  }
 }
 
 function convertAndRound(amount, conversionRate, decimalPlaces) {
-    const convertedAmount = amount * conversionRate;
-    return convertedAmount.toFixed(decimalPlaces);
+  const convertedAmount = amount * conversionRate;
+  return convertedAmount.toFixed(decimalPlaces);
 }

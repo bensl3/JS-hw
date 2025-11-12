@@ -1,22 +1,22 @@
 .mult_table {
-    border-collapse: collapse;
-    margin: 0.5rem;
+  border-collapse: collapse;
+  margin: 0.5rem;
 }
 
 .mult_table th, .mult_table td {
-    border: 0.1rem solid black;
-    padding: 4px;
+  border: 0.1rem solid black;
+  padding: 4px;
 }
 
 .mult_table thead {
-    background-color: brown;
-    color: white;
+  background-color: brown;
+  color: white;
 }
 
 .mult_table tbody tr:nth-child(odd) {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .mult_table tbody tr:nth-child(even) {
-    background-color: white;
+  background-color: white;
 }

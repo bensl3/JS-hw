@@ -19,10 +19,10 @@ let sum = start;
 let productString = 'The result of ' + start.toLocaleString();
 let sumString = 'The result of ' + start.toLocaleString();
 for (let i = start + step; i <= end; i += step) {
-    productString += ' * ' + i.toLocaleString();
-    sumString += ' + ' + i.toLocaleString();
-    product *= i;
-    sum += i;
+  productString += ' * ' + i.toLocaleString();
+  sumString += ' + ' + i.toLocaleString();
+  product *= i;
+  sum += i;
 }
 productString += ' is ' + product.toLocaleString() + '.';
 sumString += ' is ' + sum.toLocaleString() + '.';
@@ -39,12 +39,12 @@ productString = 'The result of ' + start.toLocaleString();
 sumString = 'The result of ' + start.toLocaleString();
 let i = start + step;
 while (i <= end) {
-    productString += ' * ' + i.toLocaleString();
-    sumString += ' + ' + i.toLocaleString();
-    product *= i;
-    sum += i;
+  productString += ' * ' + i.toLocaleString();
+  sumString += ' + ' + i.toLocaleString();
+  product *= i;
+  sum += i;
 
-    i += step
+  i += step
 }
 productString += ' is ' + product.toLocaleString() + '.';
 sumString += ' is ' + sum.toLocaleString() + '.';

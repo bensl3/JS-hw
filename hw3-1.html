@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Homework 3 Part 1</title>
-    <meta name="description" content="JavaScript assignment 3 part 1 for College of San Mateo Computer Science course">
-    <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, student grades, score">
-    <link rel="stylesheet" href="main.css">
-    <script src="site-header.js" defer></script>
-    <script src="hw3-1.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Homework 3 Part 1</title>
+  <meta name="description" content="JavaScript assignment 3 part 1 for College of San Mateo Computer Science course">
+  <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, student grades, score">
+  <link rel="stylesheet" href="main.css">
+  <script src="site-header.js" defer></script>
+  <script src="hw3-1.js" defer></script>
 </head>
 <body>
-    <main>
-        <nav class="hwpartsgrid">
-            <a href="hw3-1.html" class="navbutton currentpage" target="_self">Part 1</a>
-            <span class="title">Student Grades</span> <em class="here">(You are here.)</em>
-            <a href="hw3-2.html" class="navbutton" target="_self">Part 2</a>
-            <span class="title">Salesperson's Earnings</span> <em class="here">(You are here.)</em>
-            <a href="hw3-extra.html" class="navbutton" target="_self">Extra</a>
-            <span class="title">Multiplication Game</span> <em class="here">(You are here.)</em>
-        </nav>
-        <h1>Homework 3, Part 1</h1>
-        <h2>Student Grades</h2>
-        <p>
-            Enter a student's score for each category then submit to display the final percentage and letter grade.
-        </p>
-        <p>
-            Final percentage is calculated using the following formula and rounded to the nearest integer:
-            Final percentage = (0.5 * homework average) + (0.2 * midterm) + (0.2 * final exam) + (0.1 * participation)
-        </p>
-        <h3>Input Scores</h3>
-        <form id="scoresform">
-            <p>Each input score must be an integer between 0 and 100. If you enter a decimal, digits after the decimal point are ignored.</p>
-            <p>
-                <label for="hwavg">Homework Average: </label>
-                <input type="number" id="hwavg" name="hwavg" required value="0" placeholder="Required integer">
-                <br>
-                <label for="midterm">Mid-Term Exam Score: </label>
-                <input type="number" id="midterm" name="midterm" required value="0" placeholder="Required integer">
-                <br>
-                <label for="finalexam">Final Exam Score: </label>
-                <input type="number" id="finalexam" name="finalexam" required value="0" placeholder="Required integer">
-                <br>
-                <label for="participation">Participation: </label>
-                <input type="number" id="participation" name="participation" required value="0" placeholder="Required integer">
-            </p>
-            <button type="button" name="submit">Submit</button>
-            <button type="reset" name="reset">Clear all</button>
-        </form>
-        <h3>Final Result</h3>
-        <div id="javascript_output"></div>
-    </main>
-    <footer>
-        <a href="hw3.html" class="navbutton" target="_self">Return to Homework 3 Home</a>
-    </footer>
+  <main>
+    <nav class="hwpartsgrid">
+      <a href="hw3-1.html" class="navbutton currentpage" target="_self">Part 1</a>
+      <span class="title">Student Grades</span> <em class="here">(You are here.)</em>
+      <a href="hw3-2.html" class="navbutton" target="_self">Part 2</a>
+      <span class="title">Salesperson's Earnings</span> <em class="here">(You are here.)</em>
+      <a href="hw3-extra.html" class="navbutton" target="_self">Extra</a>
+      <span class="title">Multiplication Game</span> <em class="here">(You are here.)</em>
+    </nav>
+    <h1>Homework 3, Part 1</h1>
+    <h2>Student Grades</h2>
+    <p>
+      Enter a student's score for each category then submit to display the final percentage and letter grade.
+    </p>
+    <p>
+      Final percentage is calculated using the following formula and rounded to the nearest integer:
+      Final percentage = (0.5 * homework average) + (0.2 * midterm) + (0.2 * final exam) + (0.1 * participation)
+    </p>
+    <h3>Input Scores</h3>
+    <form id="scoresform">
+      <p>Each input score must be an integer between 0 and 100. If you enter a decimal, digits after the decimal point are ignored.</p>
+      <p>
+        <label for="hwavg">Homework Average: </label>
+        <input type="number" id="hwavg" name="hwavg" required value="0" placeholder="Required integer">
+        <br>
+        <label for="midterm">Mid-Term Exam Score: </label>
+        <input type="number" id="midterm" name="midterm" required value="0" placeholder="Required integer">
+        <br>
+        <label for="finalexam">Final Exam Score: </label>
+        <input type="number" id="finalexam" name="finalexam" required value="0" placeholder="Required integer">
+        <br>
+        <label for="participation">Participation: </label>
+        <input type="number" id="participation" name="participation" required value="0" placeholder="Required integer">
+      </p>
+      <button type="button" name="submit">Submit</button>
+      <button type="reset" name="reset">Clear all</button>
+    </form>
+    <h3>Final Result</h3>
+    <div id="javascript_output"></div>
+  </main>
+  <footer>
+    <a href="hw3.html" class="navbutton" target="_self">Return to Homework 3 Home</a>
+  </footer>
 </body>
 </html>
