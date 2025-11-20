@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Homework 7 Part 1</title>
+  <meta name="description" content="JavaScript assignment 7 part 1 for College of San Mateo Computer Science course">
+  <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, style">
+  <link rel="stylesheet" href="main.css">
+  <script src="site-header.js" defer></script>
+  <script src="hw7-1.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav class="hwpartsgrid">
+      <a href="hw7-1.html" class="navbutton currentpage" target="_self">Part 1</a>
+      <span class="title">Apply Styles</span> <em class="here">(You are here.)</em>
+      <a href="hw7-2.html" class="navbutton" target="_self">Part 2</a>
+      <span class="title">Save/Retrieve Cookies</span> <em class="here">(You are here.)</em>
+    </nav>
+    <h1>Homework 7, Part 1</h1>
+    <h2>Apply Styles to Text</h2>
+    <div id="styled_div">
+      <p>Choose style options below to apply styles to these 3 paragraphs of text.</p>
+      <p>You can select background color; underline, bold, and/or italic; and font size.</p>
+      <p>The selected styles are applied automatically once they are selected.</p>
+    </div>
+    <h3>Style Controls:</h3>
+    <form id="style_form">
+      <fieldset>
+        <legend>Background Color:</legend>
+        <label><input type="radio" name="background" value="white">White</label>
+        <label><input type="radio" name="background" value="yellow">Yellow</label>
+        <label><input type="radio" name="background" value="cyan">Cyan</label>
+      </fieldset>
+      <fieldset>
+        <legend>Text Styles:</legend>
+        <label><input type="checkbox" name="text_style" value="underline">Underline</label>
+        <label><input type="checkbox" name="text_style" value="bold">Bold</label>
+        <label><input type="checkbox" name="text_style" value="italic">Italic</label>
+      </fieldset>
+      <fieldset>
+        <legend>Size:</legend>
+        <label>Font Size:
+          <select name="font_size">
+            <option value="1rem">1rem</option>
+            <option value="1.5rem">1.5rem</option>
+            <option value="2rem">2rem</option>
+          </select>
+        </label>
+      </fieldset>
+    </form>
+  </main>
+  <footer>
+    <a href="hw7.html" class="navbutton" target="_self">Return to Homework 7 Home</a>
+  </footer>
+</body>
+</html>

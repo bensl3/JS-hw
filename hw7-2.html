@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Homework 7 Part 2</title>
+  <meta name="description" content="JavaScript assignment 7 part 2 for College of San Mateo Computer Science course">
+  <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, cookies">
+  <link rel="stylesheet" href="main.css">
+  <script src="site-header.js" defer></script>
+  <script src="hw7-2.js" defer></script>
+</head>
+<body>
+  <main>
+    <nav class="hwpartsgrid">
+      <a href="hw7-1.html" class="navbutton" target="_self">Part 1</a>
+      <span class="title">Apply Styles</span> <em class="here">(You are here.)</em>
+      <a href="hw7-2.html" class="navbutton currentpage" target="_self">Part 2</a>
+      <span class="title">Save/Retrieve Cookies</span> <em class="here">(You are here.)</em>
+    </nav>
+    <h1>Homework 7, Part 2</h1>
+    <h2>Using Cookies for User Information</h2>
+    <div id="form_container">
+      <!-- div content is replaced if cookies for name and username already exist -->
+      <p>Enter your name and username below to save cookies. If you load this page again with cookies saved, you will see a welcome message instead of this form.</p>
+      <p>The cookies will be deleted when you close the browser session (not simply close the tab/window).</p>
+      <form id="user_form">
+        <p><label>Your Name: <input type="text" name="name" required></label></p>
+        <p><label>Username: <input type="text" name="username" required></label></p>
+        <p>
+          <button type="submit" id="submit">Submit</button>
+          <button type="reset" id="reset">Clear Form</button>
+        </p>
+        <div id="js_output"></div>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <a href="hw7.html" class="navbutton" target="_self">Return to Homework 7 Home</a>
+  </footer>
+</body>
+</html>

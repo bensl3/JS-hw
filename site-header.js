@@ -11,7 +11,7 @@ header.innerHTML = `
     <li><a href="hw4.html" class="navbutton" target="_self"><span>Homework<br>4</span></a></li>
     <li><a href="hw5.html" class="navbutton" target="_self"><span>Homework<br>5</span></a></li>
     <li><a href="hw6.html" class="navbutton" target="_self"><span>Homework<br>6</span></a></li>
-    <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>7</span></a></li>
+    <li><a href="hw7.html" class="navbutton" target="_self"><span>Homework<br>7</span></a></li>
     <li><a href="underconstruction.html" class="navbutton" target="_self"><span>Homework<br>8</span></a></li>
   </ul>
 </nav>
