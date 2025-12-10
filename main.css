@@ -19,7 +19,7 @@ main {
 }
 
 footer {
-  margin-top: 3rem;
+  margin-top: 4rem;
   padding: 0 8px 8px;
 }
 
@@ -130,7 +130,7 @@ nav .navbutton {
 }
 
 .hwpartsgrid .title {
-  height:100%;
+  height: 100%;
   max-width: 24rem;
   padding: 0 0.3rem;
   align-content: center;

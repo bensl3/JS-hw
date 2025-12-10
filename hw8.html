@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Homework 8</title>
+  <meta name="description" content="JavaScript assignment 8 for College of San Mateo Computer Science course">
+  <meta name="keywords" content="JavaScript, CSM, college of san mateo, homework, ajax">
+  <link rel="stylesheet" href="main.css">
+  <script src="site-header.js" defer></script>
+  <style>
+  table,th,td {
+    border : 1px solid black;
+    border-collapse: collapse;
+  }
+  th,td {
+    padding: 5px;
+  }
+  </style>
+</head>
+<body>
+<main>
+<nav class="hwpartsgrid">
+  <a href="hw8.html" class="navbutton currentpage" target="_self">HW 8</a>
+  <span class="title">AJAX Application</span> <em class="here">(You are here.)</em>
+</nav>
+
+<h1>Homework 8 - AJAX Application</h1>
+<button type="button" onclick="loadDoc()">Get CD collection</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    myFunction(this);
+  }
+  xhttp.open("GET", "cd_catalog.xml");
+  xhttp.send();
+}
+function myFunction(xml) {
+  const xmlDoc = xml.responseXML;
+  const x = xmlDoc.getElementsByTagName("CD");
+  let table="<tr><th>Artist</th><th>Title</th></tr>";
+  for (let i = 0; i <x.length; i++) { 
+    table += "<tr><td>" +
+    x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+    "</td><td>" +
+    x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+    "</td></tr>";
+  }
+  document.getElementById("demo").innerHTML = table;
+}
+</script>
+
+<h2>Explanation of AJAX</h2>
+<p>When the button above is clicked, a JavaScript function is called. This function initializes an asynchronous request to a server and sets up an event handler to trigger once the requested data has finished loading.
+  Then, it configures the request to use the GET method to retrieve an XML file named "cd_catalog.xml". Finally, it sends the request to the server.</p>
+<p>Once the requested data has finished loading, the event handler is triggered, and a second function is called. This function takes the returned object and processes the XML response.
+  It parses the XML document and builds an HTML table with the information. Finally, it inserts the completed table into an HTML element in an HTML document.</p>
+
+<h2>REST API</h2>
+<p>My chosen REST API is the <a href="https://open-meteo.com/" target="_self">Open-Meteo API</a>. This is a very efficient API for accessing weather data. It has all the types of weather data we need from around the world,
+  including hourly or daily data related to temperature, precipitation, wind, and more. It has historical data dating back to 1940 and forecast data up to 16 days. It returns data in JSON format, which is easy to use.</p>
+<p>It is free for non-commercial use with no API key required, so we can start using it right away. There is a limit of 10,000 API calls per day, which is more than sufficient for our use case.</p>
+<p>For commercial use, an API subscription is required. So, we can start using it for free then purchase a subscription later if we decide to commercialize or expand our usage in the future.
+  They offer multiple <a href="https://open-meteo.com/en/pricing" target="_self">pricing plans</a> with varying limits. As of 2025, the lowest price is $29 per month (or $319 per year) for 1 million API calls per month.</p>
+<p>This API also has very good <a href="https://open-meteo.com/en/docs" target="_self">documentation</a> that helps developers to use it.</p>
+
+<h3>Example Using the API (Homework 8 Extra Credit)</h3>
+<p>Click the button below to get the most current weather data for San Mateo, California using the Open-Meteo API.</p>
+<button type="button" onclick="loadWeather()">Get weather data</button>
+<br>
+<div id="weather"></div>
+
+<script>
+function loadWeather() {
+  const weatherDiv = document.getElementById("weather");
+  weatherDiv.innerHTML = "Loading weather data...";
+  // San Mateo, CA latitude, longitude: 37.56, -122.33
+  const latitude = "37.563";
+  const longitude = "-122.3255";
+  const weatherParams = "temperature_2m,precipitation,cloud_cover,wind_speed_10m";
+  const timezone = "America%2FLos_Angeles";
+  const units = "temperature_unit=fahrenheit&precipitation_unit=inch&wind_speed_unit=mph"
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=${weatherParams}&timezone=${timezone}&${units}`;
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      const datetime = new Date(data.current.time);
+      let interval = data.current.interval;
+      let intervalUnits = data.current_units.interval;
+      while (interval >= 60 && (intervalUnits === "seconds" || intervalUnits === "minutes")) {
+        interval = interval / 60;
+        if (intervalUnits === "seconds") {
+          intervalUnits = "minutes";
+        } else if (intervalUnits === "minutes") {
+          intervalUnits = "hours";
+        }
+      }
+      if (interval === 1) {
+        intervalUnits = intervalUnits.replace(/s$/, "");
+      }
+
+      const htmlWeather = `<p>San Mateo, CA time: ${datetime.toLocaleString()}</p>
+<p><strong>Temperature:</strong> ${data.current.temperature_2m} ${data.current_units.temperature_2m}</p>
+<p><strong>Precipitation:</strong> ${data.current.precipitation} ${data.current_units.precipitation} (total in previous ${interval} ${intervalUnits})</p>
+<p><strong>Cloud Cover:</strong> ${data.current.cloud_cover} ${data.current_units.cloud_cover}</p>
+<p><strong>Wind Speed:</strong> ${data.current.wind_speed_10m} ${data.current_units.wind_speed_10m}</p>`;
+      weatherDiv.innerHTML = htmlWeather;
+    })
+    .catch(error => {
+      weatherDiv.innerHTML = "Error loading weather data.";
+      console.error(error);
+    });
+}
+</script>
+
+</main>
+<footer>
+  <a href="hw1.html" class="navbutton" target="_self">Return to Home Page</a>
+</footer>
+</body>
+</html>
